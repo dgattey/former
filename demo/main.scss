@@ -14,8 +14,8 @@ $color_gray:		hsl(0, 0%, 65%);
 $color_gray_med:	hsl(0, 0%, 45%);
 $color_gray_dark:	hsl(0, 0%, 25%);
 $color_black:		hsl(0, 0%, 10%);
-$color_svg:			rgba(0,0,0, 0.3);
-$color_svg_hover:	rgba(0,0,0, 0.5);
+$color_svg:			hsl(0, 0%, 80%);
+$color_svg_hover:	$color_gray_dark;
 $font:				'Lato', sans-serif;
 $radius:			6px;
 
@@ -46,13 +46,6 @@ h3 {
 a {
 	color: $color_blue;
 	text-decoration: none;
-}
-
-svg {
-	fill: $color_svg;
-	&:hover {
-		fill: $color_svg_hover;
-	}
 }
 
 .button {
@@ -123,9 +116,8 @@ form {
 	    text-align: right;
 	}
 	input, textarea {
+		width: 300px;
 		padding: 0.5em;
-		width: 80%;
-		max-width: 85%;
 	    font: 1em sans-serif;
 	    -moz-box-sizing: border-box;
 	    box-sizing: border-box;
@@ -137,7 +129,6 @@ form {
 	textarea {
 		vertical-align: top;
 		height: 5em;
-		resize: vertical;
 	}
 	.button, button {
 		font-size: 1em;
@@ -145,16 +136,30 @@ form {
 	}
 }
 
-form {
-	.former {
-		position: relative;
-		overflow: hidden;
+form .former {
+	position: relative;
+	display: inline-block;
 
-		.hovering_buttons {
-			position: absolute;
-			right: 0;
-			top: 0;
-			z-index: 999;
+	textarea + .hovering_buttons {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		z-index: 999;
+	}
+
+	input + .hovering_buttons {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		bottom: 5px;
+		z-index: 999;
+	}
+
+	.hovering_buttons svg {
+		background: white;
+		fill: $color_svg;
+		&:hover {
+			fill: $color_svg_hover;
 		}
 	}
 }

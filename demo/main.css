@@ -75,11 +75,6 @@ a {
   color: #269dd9;
   text-decoration: none; }
 
-svg {
-  fill: rgba(0, 0, 0, 0.3); }
-  svg:hover {
-    fill: rgba(0, 0, 0, 0.5); }
-
 .button:hover {
   background: #22c38e; }
 .button:focus {
@@ -132,9 +127,8 @@ form {
     display: inline-block;
     text-align: right; }
   form input, form textarea {
+    width: 300px;
     padding: 0.5em;
-    width: 80%;
-    max-width: 85%;
     font: 1em sans-serif;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -143,17 +137,27 @@ form {
     border-color: #000; }
   form textarea {
     vertical-align: top;
-    height: 5em;
-    resize: vertical; }
+    height: 5em; }
   form .button, form button {
     font-size: 1em;
     margin-left: 15%; }
 
 form .former {
   position: relative;
-  overflow: hidden; }
-  form .former .hovering_buttons {
+  display: inline-block; }
+  form .former textarea + .hovering_buttons {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 5px;
+    top: 5px;
     z-index: 999; }
+  form .former input + .hovering_buttons {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    z-index: 999; }
+  form .former .hovering_buttons svg {
+    background: white;
+    fill: #cccccc; }
+    form .former .hovering_buttons svg:hover {
+      fill: #404040; }

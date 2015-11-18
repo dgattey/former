@@ -44,14 +44,13 @@ function Former(element, data) {
 	}
 	element.addEventListener('change', this, false);
 
-	var parent = $(element.parentNode);
-
-	// Add .former class to parent div (assumes it has one)
-	parent.addClass('former');
+	// Wraps with .former class
+	$(element).wrap('<div class="former"></div>');
+	var wrapper = $(element.parentNode);
 
 	// Add buttons as overlay on top right
 	// TODO: make this look nicer...
-	parent.append('<div class="hovering_buttons"><svg version="1.2" x="0" y="0" width="20" viewBox="0 0 128 128" xml:space="preserve"><polygon points="64 0 83.8 42.1 128 48.9 96 81.7 103.6 128 64 106.1 24.4 128 32 81.7 0 48.9 44.2 42.1 "/></svg><svg version="1.1" x="0" y="0" viewBox="-67 269 30 28" width="20" xml:space="preserve"><path d="M-50 270c-6.7 0-12.3 5.2-12.9 11.8h-4.1l6.5 7.3 6.5-7.3h-3.9c0.6-3.8 3.9-6.8 7.8-6.8 4.4 0 7.9 3.6 7.9 8 0 4.4-3.6 8-7.9 8 -1.7 0-3.3-0.5-4.7-1.6l-3 4c2.2 1.7 4.9 2.6 7.7 2.6 7.1 0 12.9-5.8 12.9-13C-37.1 275.8-42.9 270-50 270z"/><ellipse cx="-50" cy="283" rx="3.1" ry="3.1"/></svg></div>');
+	wrapper.append('<div class="hovering_buttons"><svg version="1.2" x="0" y="0" width="22" viewBox="-10 -10 150 150"><polygon points="64 0 83.8 42.1 128 48.9 96 81.7 103.6 128 64 106.1 24.4 128 32 81.7 0 48.9 44.2 42.1 "/></svg><svg version="1.1" x="0" y="0" width="24" viewBox="-10 -20 150 150"><path d="M72.9 3C44.2 3 20.2 26 17.6 55.2H0l27.9 32.3 27.9-32.3H39.1c2.6-16.8 16.8-30.1 33.5-30.1 18.9 0 33.9 15.9 33.9 35.4S90.9 95.9 72.5 95.9c-7.3 0-14.2-2.2-20.2-7.1l-12.9 17.7C49 114 60.6 118 72.5 118c30.5 0 55.4-25.7 55.4-57.5C128.3 28.7 103.4 3 72.9 3z"/><ellipse cx="72.9" cy="60.5" rx="13.3" ry="13.7"/></svg>');
 
 }
 
