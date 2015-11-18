@@ -1,0 +1,145 @@
+/*
+ * FORMER
+ * Contains SASS code for the demo page of Former
+ */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body, p, h1, h2, h3, h4, h5, h6 {
+  color: #404040;
+  font-family: "Lato", sans-serif;
+  line-height: 1.5em; }
+
+h1 {
+  font-size: 4em;
+  font-weight: 400; }
+
+h2 {
+  font-size: 1.3em;
+  color: #a6a6a6; }
+
+h3 {
+  font-size: 1.6em;
+  line-height: 2em;
+  letter-spacing: 3px;
+  color: #26d99d;
+  text-transform: uppercase;
+  font-weight: 400; }
+
+a {
+  color: #269dd9;
+  text-decoration: none; }
+
+.button:hover {
+  background: #22c38e; }
+.button:focus {
+  background: #1fad7e; }
+
+.badge {
+  vertical-align: top;
+  line-height: 1.4em; }
+
+.badge, .button {
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  padding: 6px;
+  font-family: "Lato", sans-serif;
+  border-radius: 6px;
+  background: #26d99d; }
+
+article {
+  padding: 0 80px; }
+  article h1 {
+    margin-top: 1.8em; }
+  article h2 {
+    margin-bottom: 0.8em; }
+  article .title {
+    margin-bottom: 3em; }
+  article .github {
+    font-size: 0.3em; }
+  article .intro {
+    font-size: 1.3em;
+    letter-spacing: 0.4px;
+    font-weight: 300;
+    margin-top: 1em;
+    margin-bottom: 1.5em; }
+  article .demo {
+    margin-top: 4em; }
+
+form {
+  background: #fafafa;
+  margin: 20px 0;
+  padding: 1em;
+  border: 1px solid #a6a6a6;
+  border-radius: 6px; }
+  form div + div {
+    margin-top: 1em; }
+  form label {
+    min-width: 15%;
+    display: inline-block;
+    text-align: right; }
+  form input, form textarea {
+    padding: 0.5em;
+    width: 80%;
+    max-width: 85%;
+    font: 1em sans-serif;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #999; }
+  form input:focus, form textarea:focus {
+    border-color: #000; }
+  form textarea {
+    vertical-align: top;
+    height: 5em;
+    resize: vertical; }
+  form .button, form button {
+    font-size: 1em;
+    margin-left: 15%; }
