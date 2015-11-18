@@ -148,14 +148,16 @@ form {
   .former textarea + .hovering_buttons {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 1px;
     z-index: 999; }
   .former input + .hovering_buttons {
     position: absolute;
     right: 5px;
-    top: 5px;
-    bottom: 5px;
+    top: 2px;
+    bottom: 2px;
     z-index: 999; }
+  .former .hovering_buttons {
+    background: white; }
   .former .hovering_buttons svg {
     height: 100%;
     background: white;
