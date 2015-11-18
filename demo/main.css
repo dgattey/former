@@ -75,6 +75,11 @@ a {
   color: #269dd9;
   text-decoration: none; }
 
+svg {
+  fill: rgba(0, 0, 0, 0.3); }
+  svg:hover {
+    fill: rgba(0, 0, 0, 0.5); }
+
 .button:hover {
   background: #22c38e; }
 .button:focus {
@@ -143,3 +148,12 @@ form {
   form .button, form button {
     font-size: 1em;
     margin-left: 15%; }
+
+form .former {
+  position: relative;
+  overflow: hidden; }
+  form .former .hovering_buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 999; }

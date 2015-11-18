@@ -14,6 +14,8 @@ $color_gray:		hsl(0, 0%, 65%);
 $color_gray_med:	hsl(0, 0%, 45%);
 $color_gray_dark:	hsl(0, 0%, 25%);
 $color_black:		hsl(0, 0%, 10%);
+$color_svg:			rgba(0,0,0, 0.3);
+$color_svg_hover:	rgba(0,0,0, 0.5);
 $font:				'Lato', sans-serif;
 $radius:			6px;
 
@@ -44,6 +46,13 @@ h3 {
 a {
 	color: $color_blue;
 	text-decoration: none;
+}
+
+svg {
+	fill: $color_svg;
+	&:hover {
+		fill: $color_svg_hover;
+	}
 }
 
 .button {
@@ -133,5 +142,19 @@ form {
 	.button, button {
 		font-size: 1em;
 		margin-left: 15%;
+	}
+}
+
+form {
+	.former {
+		position: relative;
+		overflow: hidden;
+
+		.hovering_buttons {
+			position: absolute;
+			right: 0;
+			top: 0;
+			z-index: 999;
+		}
 	}
 }

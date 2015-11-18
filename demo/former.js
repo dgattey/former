@@ -2,9 +2,6 @@
  * 
  */
 
-// Loads function f on document did load
-function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f();}
-
 // From http://perfectionkills.com/detecting-event-support-without-browser-sniffing/
 var isEventSupported = (function(){
     var tagNames = {
@@ -46,6 +43,16 @@ function Former(element, data) {
 		element.addEventListener('textInput', this, false);
 	}
 	element.addEventListener('change', this, false);
+
+	var parent = $(element.parentNode);
+
+	// Add .former class to parent div (assumes it has one)
+	parent.addClass('former');
+
+	// Add buttons as overlay on top right
+	// TODO: make this look nicer...
+	parent.append('<div class="hovering_buttons"><svg version="1.2" x="0" y="0" width="20" viewBox="0 0 128 128" xml:space="preserve"><polygon points="64 0 83.8 42.1 128 48.9 96 81.7 103.6 128 64 106.1 24.4 128 32 81.7 0 48.9 44.2 42.1 "/></svg><svg version="1.1" x="0" y="0" viewBox="-67 269 30 28" width="20" xml:space="preserve"><path d="M-50 270c-6.7 0-12.3 5.2-12.9 11.8h-4.1l6.5 7.3 6.5-7.3h-3.9c0.6-3.8 3.9-6.8 7.8-6.8 4.4 0 7.9 3.6 7.9 8 0 4.4-3.6 8-7.9 8 -1.7 0-3.3-0.5-4.7-1.6l-3 4c2.2 1.7 4.9 2.6 7.7 2.6 7.1 0 12.9-5.8 12.9-13C-37.1 275.8-42.9 270-50 270z"/><ellipse cx="-50" cy="283" rx="3.1" ry="3.1"/></svg></div>');
+
 }
 
 // Delegates what to do when given event happens
@@ -79,7 +86,7 @@ Former.prototype.hashID = function(){
 };
 
 // Calls initializer when document loaded
-r(function(){
+$(function(){
 	// Load all inputs and textareas into memory
 	var inputs = document.querySelectorAll('form input[type=text]');
 	var texts = document.querySelectorAll('form textarea');
