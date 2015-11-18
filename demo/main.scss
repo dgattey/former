@@ -136,7 +136,8 @@ form {
 	}
 }
 
-form .former {
+// TODO: fix styles when not styled nicely (default forms)
+.former {
 	position: relative;
 	display: inline-block;
 
@@ -154,12 +155,20 @@ form .former {
 		bottom: 5px;
 		z-index: 999;
 	}
-
 	.hovering_buttons svg {
+		height: 100%;
 		background: white;
 		fill: $color_svg;
 		&:hover {
 			fill: $color_svg_hover;
 		}
+	}
+
+	// Disables standard yellow background, instead highlighting border
+	input:-webkit-autofill {
+		&, &:hover, &:active, &:focus {
+			border-color: hsl(60, 80%, 45%);
+    		-webkit-box-shadow: 0 0 0 500px white inset;
+    	}
 	}
 }

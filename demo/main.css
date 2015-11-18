@@ -142,22 +142,26 @@ form {
     font-size: 1em;
     margin-left: 15%; }
 
-form .former {
+.former {
   position: relative;
   display: inline-block; }
-  form .former textarea + .hovering_buttons {
+  .former textarea + .hovering_buttons {
     position: absolute;
     right: 5px;
     top: 5px;
     z-index: 999; }
-  form .former input + .hovering_buttons {
+  .former input + .hovering_buttons {
     position: absolute;
     right: 5px;
     top: 5px;
     bottom: 5px;
     z-index: 999; }
-  form .former .hovering_buttons svg {
+  .former .hovering_buttons svg {
+    height: 100%;
     background: white;
     fill: #cccccc; }
-    form .former .hovering_buttons svg:hover {
+    .former .hovering_buttons svg:hover {
       fill: #404040; }
+  .former input:-webkit-autofill, .former input:-webkit-autofill:hover, .former input:-webkit-autofill:active, .former input:-webkit-autofill:focus {
+    border-color: #cfcf17;
+    -webkit-box-shadow: 0 0 0 500px white inset; }
