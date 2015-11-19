@@ -17,6 +17,7 @@ $color_black:		hsl(0, 0%, 10%);
 $color_svg:			$color_gray_med;
 $color_svg_hover:	$color_gray_dark;
 $color_svg_bg:		rgba(255,255,255,0.8);
+$color_slider_bg:	rgba(48, 113, 164, 0.8);
 $font:				'Lato', sans-serif;
 $radius:			6px;
 
@@ -182,23 +183,21 @@ form {
 		}
 		input[type=range]:focus {
 		  outline: none;
+		  border-color: inherit;
 		}
 		input[type=range]::-webkit-slider-runnable-track {
 		  width: 100%;
 		  height: 3px;
 		  cursor: pointer;
-		  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-		  background: rgba(48, 113, 164, 0.8);
+		  background: $color_slider_bg;
 		  border-radius: 25px;
-		  border: 0px solid rgba(0, 0, 0, 0);
 		}
 		input[type=range]::-webkit-slider-thumb {
 		  box-shadow: 1px 1px 4px #2d2d2d, 0px 0px 1px #3a3a3a;
-		  border: 0px solid rgba(0, 0, 0, 0);
 		  height: 12px;
 		  width: 22px;
 		  border-radius: 18px;
-		  background: rgba(255, 255, 255, 0.98);
+		  background: white;
 		  cursor: pointer;
 		  -webkit-appearance: none;
 		  margin-top: -4.5px;
@@ -210,18 +209,15 @@ form {
 		  width: 100%;
 		  height: 3px;
 		  cursor: pointer;
-		  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-		  background: rgba(48, 113, 164, 0.8);
+		  background: $color_slider_bg;
 		  border-radius: 25px;
-		  border: 0px solid rgba(0, 0, 0, 0);
 		}
 		input[type=range]::-moz-range-thumb {
 		  box-shadow: 1px 1px 4px #2d2d2d, 0px 0px 1px #3a3a3a;
-		  border: 0px solid rgba(0, 0, 0, 0);
 		  height: 12px;
 		  width: 22px;
 		  border-radius: 18px;
-		  background: rgba(255, 255, 255, 0.98);
+		  background: white;
 		  cursor: pointer;
 		}
 		input[type=range]::-ms-track {
@@ -234,28 +230,23 @@ form {
 		}
 		input[type=range]::-ms-fill-lower {
 		  background: rgba(36, 86, 125, 0.8);
-		  border: 0px solid rgba(0, 0, 0, 0);
 		  border-radius: 50px;
-		  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
 		}
 		input[type=range]::-ms-fill-upper {
-		  background: rgba(48, 113, 164, 0.8);
-		  border: 0px solid rgba(0, 0, 0, 0);
+		  background: $color_slider_bg;
 		  border-radius: 50px;
-		  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
 		}
 		input[type=range]::-ms-thumb {
 		  box-shadow: 1px 1px 4px #2d2d2d, 0px 0px 1px #3a3a3a;
-		  border: 0px solid rgba(0, 0, 0, 0);
 		  height: 12px;
 		  width: 22px;
 		  border-radius: 18px;
-		  background: rgba(255, 255, 255, 0.98);
+		  background: white;
 		  cursor: pointer;
 		  height: 3px;
 		}
 		input[type=range]:focus::-ms-fill-lower {
-		  background: rgba(48, 113, 164, 0.8);
+		  background: $color_slider_bg;
 		}
 		input[type=range]:focus::-ms-fill-upper {
 		  background: rgba(64, 140, 199, 0.8);
