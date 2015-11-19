@@ -56,9 +56,14 @@ function Former(element) {
 	// Add buttons as overlay on top right
 	// TODO: make this look nicer...
 	var hovering = $('<div class="hovering_buttons"></div>').appendTo(wrapper);
-	var starButton = $('<svg class="star_button" version="1.2" x="0" y="0" width="20" viewBox="-10 -10 150 150"><polygon points="64 0 83.8 42.1 128 48.9 96 81.7 103.6 128 64 106.1 24.4 128 32 81.7 0 48.9 44.2 42.1 "/></svg>').appendTo(hovering);
-	var timelineButton = $('<svg class="timeline_button" version="1.1" x="0" y="0" width="22" viewBox="-10 -20 150 150"><path d="M72.9 3C44.2 3 20.2 26 17.6 55.2H0l27.9 32.3 27.9-32.3H39.1c2.6-16.8 16.8-30.1 33.5-30.1 18.9 0 33.9 15.9 33.9 35.4S90.9 95.9 72.5 95.9c-7.3 0-14.2-2.2-20.2-7.1l-12.9 17.7C49 114 60.6 118 72.5 118c30.5 0 55.4-25.7 55.4-57.5C128.3 28.7 103.4 3 72.9 3z"/><ellipse cx="72.9" cy="60.5" rx="13.3" ry="13.7"/></svg>').appendTo(hovering);
+	var starButton = $('<svg class="star_button" version="1.2" x="0" y="0" width="20" viewBox="-10 -10 150 150"><polygon points="64 0 83.8 42.1 128 48.9 96 81.7 103.6 128 64 106.1 24.4 128 32 81.7 0 48.9 44.2 42.1 "/></svg>')
+		.appendTo(hovering);
+	var timelineButton = $('<svg class="timeline_button" version="1.1" x="0" y="0" width="22" viewBox="-10 -20 150 150"><path d="M72.9 3C44.2 3 20.2 26 17.6 55.2H0l27.9 32.3 27.9-32.3H39.1c2.6-16.8 16.8-30.1 33.5-30.1 18.9 0 33.9 15.9 33.9 35.4S90.9 95.9 72.5 95.9c-7.3 0-14.2-2.2-20.2-7.1l-12.9 17.7C49 114 60.6 118 72.5 118c30.5 0 55.4-25.7 55.4-57.5C128.3 28.7 103.4 3 72.9 3z"/><ellipse cx="72.9" cy="60.5" rx="13.3" ry="13.7"/></svg>')
+		.appendTo(hovering);
+
+	// Click handlers
 	var former = this;
+	$(element).click(function(){former.updateModel();});
 	starButton.click(function(){former.star();});
 	timelineButton.click(function(){former.timelineButtonClicked();});
 }
@@ -71,38 +76,58 @@ Former.prototype.star = function(){
 };
 
 /*
- * Shows or hides the timeline
+ * Shows or hides the timeline in response to the button being clicked.
  */
 Former.prototype.timelineButtonClicked = function(){
-	var parent = $(this.element.parentNode);
-	if (this.timeline) {
-		this.timeline.remove();
-		this.timeline = undefined;
-	} else {
-		tm = this.createTimeline();
-		this.timeline.appendTo(parent);
-		tm.prop('max', this.history.length - 1);
-		tm.prop('value', tm.prop('max'));
-		var former = this;
-		tm.on('input', function(event){former.moveTimeline(event);});
+	var hidden = this.timeline === undefined;
+
+	// Make sure we save the model before showing timeline
+	this.updateModel();
+	
+	// Create it, since it didn't exist
+	if (hidden) {
+		this.createTimeline();
+		this.timeline.appendTo($(this.element.parentNode));
+		$(this.element).toggleClass('timeline-shown', true);
 	}
 };
 
-Former.prototype.moveTimeline = function(event){
-	var val = $(event.target).prop('value');
-	this.element.value = this.history[val]; // Don't update the model
-	// Model will be updated when user makes edits?
-	// TODO: Update model more? On certain cases? Dunno.
+/*
+ * Hides the timeline if shown, and returns whether hiding was
+ * successful. If the timeline didn't exist, it'll return false.
+ */
+Former.prototype.hideTimeline = function(){
+	$(this.element).toggleClass('timeline-shown', false);
+	if (this.timeline) {
+		this.timeline.remove();
+		this.timeline = undefined;
+		return true;
+	}
+	return false;
 };
 
 /*
- * Creates timeline input element and returns it. Also
- * sets this.timeline to the wrapper around the input.
+ * Called in response to the user moving the timeline - just
+ * updates the actual text, not the model.
+ */
+Former.prototype.moveTimeline = function(event){
+	var val = $(event.target).prop('value');
+	this.element.value = this.history[val]; // Don't update the model
+};
+
+/*
+ * Creates timeline input element and sets up values. Also sets 
+ * this.timeline to the wrapper around the input.
  */
 Former.prototype.createTimeline = function() {
+	var former = this;
 	var tm = $('<input type="range"></input>');
+	tm.prop('max', this.history.length - 1);
+	tm.prop('value', tm.prop('max'));
+	tm.on('input', function(event){former.moveTimeline(event);});
+
+	// Represents the wrapped timeline object
 	this.timeline = $('<div class="timeline"></div>').append(tm);
-	return tm;
 };
 
 /*
@@ -117,8 +142,13 @@ Former.prototype.handleEvent = function(event) {
  * version of history if it's a new value
  */
 Former.prototype.updateModel = function(value) {
-	console.log("Updating model " + this.hashID() + ' ' + this.history.length);
-	// TODO: Don't save same data twice
+	if (value === undefined) value = this.element.value;
+
+	// Hide timeline if shown
+	this.hideTimeline();
+
+	// Don't save same data twice
+	if (value == this.history[this.history.length - 1]) return;
 	this.element.value = value;
 	this.history.push(value);
 	this.save(this.history);
