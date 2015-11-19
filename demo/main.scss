@@ -14,8 +14,9 @@ $color_gray:		hsl(0, 0%, 65%);
 $color_gray_med:	hsl(0, 0%, 45%);
 $color_gray_dark:	hsl(0, 0%, 25%);
 $color_black:		hsl(0, 0%, 10%);
-$color_svg:			hsl(0, 0%, 80%);
+$color_svg:			$color_gray_med;
 $color_svg_hover:	$color_gray_dark;
+$color_svg_bg:		rgba(255,255,255,0.8);
 $font:				'Lato', sans-serif;
 $radius:			6px;
 
@@ -156,15 +157,23 @@ form {
 		z-index: 999;
 	}
 	.hovering_buttons {
-		background: white;
+		background: $color_svg_bg;
 	}
 	.hovering_buttons svg {
 		height: 100%;
-		background: white;
+		background: $color_svg_bg;
 		fill: $color_svg;
 		&:hover {
 			fill: $color_svg_hover;
 		}
+	}
+	.timeline {
+		position: absolute;
+		z-index: 998;
+		top: 20px;
+		background: white;
+		border-radius: 6px;
+		border: 1px solid black;
 	}
 
 	// Disables standard yellow background, instead highlighting border

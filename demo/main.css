@@ -157,13 +157,20 @@ form {
     bottom: 2px;
     z-index: 999; }
   .former .hovering_buttons {
-    background: white; }
+    background: rgba(255, 255, 255, 0.8); }
   .former .hovering_buttons svg {
     height: 100%;
-    background: white;
-    fill: #cccccc; }
+    background: rgba(255, 255, 255, 0.8);
+    fill: #737373; }
     .former .hovering_buttons svg:hover {
       fill: #404040; }
+  .former .timeline {
+    position: absolute;
+    z-index: 998;
+    top: 20px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid black; }
   .former input:-webkit-autofill, .former input:-webkit-autofill:hover, .former input:-webkit-autofill:active, .former input:-webkit-autofill:focus {
     border-color: #cfcf17;
     -webkit-box-shadow: 0 0 0 500px white inset; }
