@@ -121,7 +121,7 @@ form {
   border: 1px solid #a6a6a6;
   border-radius: 6px; }
   form div + div {
-    margin-top: 1em; }
+    margin-top: 2em; }
   form label {
     min-width: 15%;
     display: inline-block;
@@ -156,7 +156,11 @@ form {
     top: 2px;
     bottom: 2px;
     z-index: 999; }
+  .former:hover .hovering_buttons, .former .timeline-shown + .hovering_buttons {
+    opacity: 1; }
   .former .hovering_buttons {
+    transition: 0.3s opacity;
+    opacity: 0;
     background: rgba(255, 255, 255, 0.8); }
   .former .hovering_buttons svg {
     height: 100%;

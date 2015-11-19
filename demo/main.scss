@@ -110,7 +110,7 @@ form {
     border: 1px solid $color_gray;
     border-radius: $radius;
     div + div {
-	    margin-top: 1em;
+	    margin-top: 2em;
 	}
 	label { 
 		min-width: 15%;
@@ -157,7 +157,12 @@ form {
 		bottom: 2px;
 		z-index: 999;
 	}
+	&:hover .hovering_buttons, .timeline-shown + .hovering_buttons {
+		opacity: 1;
+	}
 	.hovering_buttons {
+		transition: 0.3s opacity;
+		opacity: 0;
 		background: $color_svg_bg;
 	}
 	.hovering_buttons svg {
