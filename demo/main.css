@@ -166,11 +166,76 @@ form {
       fill: #404040; }
   .former .timeline {
     position: absolute;
-    z-index: 998;
-    top: 20px;
-    background: white;
-    border-radius: 6px;
-    border: 1px solid black; }
+    z-index: 1000;
+    bottom: -25px;
+    left: 0;
+    right: 0; }
+    .former .timeline input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      margin: 5.7px 0;
+      border-top: none; }
+    .former .timeline input[type=range]:focus {
+      outline: none; }
+    .former .timeline input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 3.6px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px transparent, 0px 0px 1px rgba(13, 13, 13, 0);
+      background: rgba(48, 113, 169, 0.78);
+      border-radius: 25px;
+      border: none; }
+    .former .timeline input[type=range]::-webkit-slider-thumb {
+      box-shadow: 1px 1px 4.1px #2d2d2d, 0px 0px 1px #3a3a3a;
+      height: 15px;
+      width: 25px;
+      border-radius: 18px;
+      background: #ffffff;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -5.7px; }
+    .former .timeline input[type=range]:focus::-webkit-slider-runnable-track {
+      background: rgba(54, 126, 189, 0.78); }
+    .former .timeline input[type=range]::-moz-range-track {
+      width: 100%;
+      height: 3.6px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px transparent, 0px 0px 1px rgba(13, 13, 13, 0);
+      background: rgba(48, 113, 169, 0.78);
+      border-radius: 25px;
+      border: 0px solid rgba(1, 1, 1, 0); }
+    .former .timeline input[type=range]::-moz-range-thumb {
+      box-shadow: 1px 1px 4.1px #2d2d2d, 0px 0px 1px #3a3a3a;
+      height: 15px;
+      width: 25px;
+      border-radius: 18px;
+      background: #ffffff;
+      cursor: pointer; }
+    .former .timeline input[type=range]::-ms-track {
+      width: 100%;
+      height: 3.6px;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent; }
+    .former .timeline input[type=range]::-ms-fill-lower {
+      background: rgba(42, 100, 149, 0.78);
+      border-radius: 50px; }
+    .former .timeline input[type=range]::-ms-fill-upper {
+      background: rgba(48, 113, 169, 0.78);
+      border-radius: 50px; }
+    .former .timeline input[type=range]::-ms-thumb {
+      box-shadow: 1px 1px 4.1px #2d2d2d, 0px 0px 1px #3a3a3a;
+      height: 15px;
+      width: 25px;
+      border-radius: 18px;
+      background: #ffffff;
+      cursor: pointer;
+      height: 3.6px; }
+    .former .timeline input[type=range]:focus::-ms-fill-lower {
+      background: rgba(48, 113, 169, 0.78); }
+    .former .timeline input[type=range]:focus::-ms-fill-upper {
+      background: rgba(54, 126, 189, 0.78); }
   .former input:-webkit-autofill, .former input:-webkit-autofill:hover, .former input:-webkit-autofill:active, .former input:-webkit-autofill:focus {
     border-color: #cfcf17;
     -webkit-box-shadow: 0 0 0 500px white inset; }
