@@ -148,7 +148,7 @@ form {
   .former textarea + .hovering_buttons {
     position: absolute;
     right: 5px;
-    top: 1px;
+    top: 2px;
     z-index: 999; }
   .former input + .hovering_buttons {
     position: absolute;
@@ -156,8 +156,10 @@ form {
     top: 2px;
     bottom: 2px;
     z-index: 999; }
-  .former:hover .hovering_buttons, .former .timeline-shown + .hovering_buttons {
+  .former:hover .hovering_buttons {
     opacity: 1; }
+  .former .timeline-change + .hovering_buttons {
+    opacity: 0 !important; }
   .former .hovering_buttons {
     transition: 0.3s opacity;
     opacity: 0;

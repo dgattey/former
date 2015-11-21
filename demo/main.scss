@@ -138,7 +138,6 @@ form {
 	}
 }
 
-// TODO: fix styles when not styled nicely (default forms)
 .former {
 	position: relative;
 	display: inline-block;
@@ -146,7 +145,7 @@ form {
 	textarea + .hovering_buttons {
 		position: absolute;
 		right: 5px;
-		top: 1px;
+		top: 2px;
 		z-index: 999;
 	}
 
@@ -157,8 +156,11 @@ form {
 		bottom: 2px;
 		z-index: 999;
 	}
-	&:hover .hovering_buttons, .timeline-shown + .hovering_buttons {
+	&:hover .hovering_buttons {
 		opacity: 1;
+	}
+	.timeline-change + .hovering_buttons {
+		opacity: 0 !important;
 	}
 	.hovering_buttons {
 		transition: 0.3s opacity;
