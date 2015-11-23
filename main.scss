@@ -90,7 +90,9 @@ p {
 }
 
 article {
-	padding: 0 80px;
+	margin: 0 auto;
+	max-width: 800px;
+	width: 80%;
 	margin-bottom: 70px;
 	h1 {
 		margin-top: 1.8em;
@@ -162,15 +164,15 @@ form {
 	textarea + .hovering_buttons {
 		position: absolute;
 		right: 5px;
-		top: 2px;
+		top: 4px;
 		z-index: 999;
 	}
 
 	input + .hovering_buttons {
 		position: absolute;
 		right: 5px;
-		top: 2px;
-		bottom: 2px;
+		top: 4px;
+		bottom: 4px;
 		z-index: 999;
 	}
 	&:hover .hovering_buttons {

@@ -108,7 +108,9 @@ p {
   background: #26d99d; }
 
 article {
-  padding: 0 80px;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 80%;
   margin-bottom: 70px; }
   article h1 {
     margin-top: 1.8em; }
@@ -163,13 +165,13 @@ form {
   .former textarea + .hovering_buttons {
     position: absolute;
     right: 5px;
-    top: 2px;
+    top: 4px;
     z-index: 999; }
   .former input + .hovering_buttons {
     position: absolute;
     right: 5px;
-    top: 2px;
-    bottom: 2px;
+    top: 4px;
+    bottom: 4px;
     z-index: 999; }
   .former:hover .hovering_buttons {
     opacity: 1; }
