@@ -134,7 +134,7 @@ Former.prototype.hideTimeline = function(){
 Former.prototype.moveTimeline = function(event){
 	$(this.element).toggleClass('timeline-change', true);
 	var val = $(event.target).prop('value');
-	this.element.value = this.history[val]; // Don't update the model
+	this.element.value = this.history[val].value; // Don't update the model
 };
 
 /*
@@ -171,9 +171,13 @@ Former.prototype.updateModel = function(value) {
 	this.hideTimeline();
 
 	// Don't save same data twice
-	if (value == this.history[this.history.length - 1]) return;
+	var last = this.history[this.history.length - 1];
+	if (last && value == last.value) return;
 	this.element.value = value;
-	this.history.push(value);
+	this.history.push({
+		value: value,
+		date: new Date()
+	});
 	this.save(this.history);
 };
 
