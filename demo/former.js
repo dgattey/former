@@ -64,7 +64,7 @@ function Former(element) {
 	// Click handlers
 	var former = this;
 	$(element).click(function(){former.updateModel();});
-	clearButton.click(function(){former.clear();});
+	clearButton.click(function(){former.promptClear();});
 	timelineButton.click(function(){former.timelineButtonClicked();});
 }
 
@@ -72,9 +72,23 @@ function Former(element) {
  * Clears all history of this input/textarea and shows
  * that fact to the user
  */
-Former.prototype.clear = function(){
-	// TODO: prompt
-	console.log('clear clicked!', this);
+Former.prototype.promptClear = function(){
+	this.hideTimeline();
+	if (confirm('Are you sure you want to clear history for this field?')) {
+		this.delete();
+	}
+};
+
+/*
+ * Checks whether history is invalid (it's missing, or the length of
+ * the array is zero or one while the first item is '')
+ */
+Former.prototype.isHistoryInvalid = function(){
+	var hist = this.history;
+	if (!hist) return true;
+
+	var len = this.history.length;
+	return len === 0 || len == 1 && hist[len - 1].value === '';
 };
 
 /*
@@ -82,6 +96,12 @@ Former.prototype.clear = function(){
  */
 Former.prototype.timelineButtonClicked = function(){
 	var hidden = this.timeline === undefined;
+
+	// If nothing there, alert user
+	if (this.isHistoryInvalid()) {
+		alert('No history to show');
+		return;
+	}
 
 	// Make sure we save the model before showing timeline
 	this.updateModel();
@@ -164,8 +184,16 @@ Former.prototype.updateModel = function(value) {
  */
 Former.prototype.save = function(obj) {
 	// TODO: Schedule a save for at most once every two seconds so as to not overwhelm storage
-	console.log("Saving model " + this.hashID());
 	localStorage.setItem(this.hashID(), JSON.stringify(obj));
+};
+
+/*
+ * Deletes all records for a given object by clearing local 
+ * storage for that object and local history.
+ */
+Former.prototype.delete = function() {
+	this.history = [];
+	localStorage.removeItem(this.hashID());
 };
 
 /*
