@@ -54,7 +54,6 @@ function Former(element) {
 	var wrapper = $(element.parentNode);
 
 	// Add buttons as overlay on top right
-	// TODO: make this look nicer...
 	var hovering = $('<div class="hovering_buttons"></div>').appendTo(wrapper);
 	var clearButton = $('<svg version="1.1" x="0" y="0" viewBox="0 -10 128 138" width="14" xml:space="preserve"><path d="M121.8 113.5c0 4.1-1.5 7.5-4.4 10.1 -2.6 3-6 4.4-10.1 4.4 -4.1 0-7.6-1.5-10.6-4.4L64.2 86.6l-33 36.9c-2.6 3-6 4.4-10.1 4.4 -4.1 0-7.6-1.5-10.6-4.4 -3-2.6-4.4-6-4.4-10.1 0-4.1 1.5-7.6 4.4-10.6l34-38.9 -34-38.9c-3-2.6-4.4-6-4.4-10.1 0-4.1 1.5-7.6 4.4-10.6 3-3 6.5-4.4 10.6-4.4 4.1 0 7.5 1.5 10.1 4.4l33 37.4L96.7 4.4c3-3 6.5-4.4 10.6-4.4 4.1 0 7.5 1.5 10.1 4.4 3 3 4.4 6.5 4.4 10.6 0 4.1-1.5 7.5-4.4 10.1L83.4 64l34 38.9C120.4 105.8 121.8 109.4 121.8 113.5z"/></svg>')
 		.appendTo(hovering);
@@ -181,12 +180,9 @@ Former.prototype.updateModel = function(value) {
 };
 
 /*
- * Saves an object to local storage safely and without 
- * overwhelming localStorage (by queuing saves for every
- * few seconds rather than at every change)
+ * Saves an object to local storage safely
  */
 Former.prototype.save = function(obj) {
-	// TODO: Schedule a save for at most once every two seconds so as to not overwhelm storage
 	localStorage.setItem(this.hashID(), JSON.stringify(obj));
 };
 
@@ -208,7 +204,6 @@ Former.prototype.get = function() {
 
 /*
  * Gives a unique ID for this element based on element ID
- * TODO: Make stronger
  */
 Former.prototype.hashID = function(){
 	return this.element.id;
