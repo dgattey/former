@@ -18,18 +18,35 @@
 	<article>
 		<!-- Title -->
 		<section class="title">
-			<h1>Former <span class="badge github">alpha</a></h1>
+			<h1>Former <span class="badge github">beta</a></h1>
 			<h2>A project by <a href="http://dylangattey.com">Dylan Gattey</a> available on <a href="https://github.com/dgattey/former">Github</a></h2>
 		</section>
 		
 
 		<!-- Intro & Github link -->
-		<p class="intro">Sick of losing everything in a form because you accidentally navigated away? Wish you could go back to a previous version of an input or text field? Former is here to rescue you with automatic, timeline-based backups, saved right to your browser.</p>
+		<p class="intro">Sick of losing everything in a form because you accidentally navigated away? Wish you could go back to a previous version of something you've typed? Former is here to rescue you with automatic, timeline-based backups, saved right to your browser.</p>
+
+		<!-- Details -->
+		<section class="details">
+			<h3>How it Works</h3>
+			<p>Former works by injecting some simple Javascript code into the page, dynamically changing every input field into a Former-ified field. Every textarea and input gets two buttons that appear when you hover over the element. Click the history button, then scrub through the past with ease and speed. Clear all history for the field with the clear button, in case some things are better left in the past.</p>
+			<p>Even if your browser crashes, or your internet goes out, or you feel like refreshing the page, your content will be there. Former's developers never see your content, as it's saved in local, browser-based storage. Your content is safe with you. See it in action in the demo below!</p>
+			<h4>Compatibility</h4>
+			<p>Former uses some new HTML5 technologies, and thus supports only the newest browsers. You should be able to run it on Chrome 22+, Safari 7+, IE 9+, and Firefox 18+, and perhaps some older browsers that support the necessary standards.</p>
+			<h4>Technical Details</h4>
+			<p>Former works by saving every keystroke to the browser's localStorage cache, and exposing that history to the user dynamically with the history button. Clearing simply deletes localStorage's cache. If the change made at any point is the same as the last version, Former saves your data just once.</p>
+		</section>
+
+		<!-- Installation -->
+		<section class="installation">
+			<h3>Installation <span class="badge">Coming soon</span></h3>
+			<p>Former will soon be packaged as a Chrome and Safari extension so you can use it on any site by simply installing a plugin. For now, if you'd like to use Former yourself, you'll need to include former.js and former.css from this website or the <a href="https://github.com/dgattey/former">Github repo</a>. Additionally, the following are requirements for full functionality: <a href="https://jquery.com/">jQuery 2+</a> and <a href="http://www.tippedjs.com/">Tipped</a>.
+		</section>
 
 		<!-- Demo -->
 		<section class="demo">
 			<h3>Demo</h3>
-			<p>Former is supported on both the textareas and the input fields of type text of any form. Try typing into either one of those and restoring from an older edit!</p>
+			<p>You'll be able to use Former on any of the fields in this form except the password field, for security reasons. Try it out! Type a few sentences or a few words and scrub back through history.</p>
 			<form class="form-horizontal" role="form">
 				<div class="form-group">
 				    <label class="control-label" for="name">Name:</label>
@@ -55,6 +72,12 @@
 			    	<a class="button" href="#">Submit</a>
 			  	</div>
 			</form>
+		</section>
+
+		<!-- Feedback -->
+		<section class="feedback">
+			<h3>Feedback</h3>
+			<p>Any feedback about Former? Would you like to see it as a Chrome/Safari extension? Let me know by writing me at <a href="mailto:dylan@dylangattey.com">dylan@dylangattey.com</a>. Thanks!</p>
 		</section>
 	</article>
 </body>

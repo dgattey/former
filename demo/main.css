@@ -64,16 +64,27 @@ h2 {
   color: #a6a6a6; }
 
 h3 {
-  font-size: 1.6em;
+  font-size: 1.8em;
   line-height: 2em;
   letter-spacing: 3px;
   color: #26d99d;
   text-transform: uppercase;
   font-weight: 400; }
 
+h4 {
+  font-size: 1.4em;
+  line-height: 2.5em;
+  letter-spacing: 2px;
+  color: #a6a6a6;
+  text-transform: uppercase;
+  font-weight: 400; }
+
 a {
   color: #269dd9;
   text-decoration: none; }
+
+p {
+  margin-bottom: 1em; }
 
 .button:hover {
   background: #22c38e; }
@@ -82,7 +93,8 @@ a {
 
 .badge {
   vertical-align: top;
-  line-height: 1.4em; }
+  line-height: 1.4em;
+  font-size: 0.6em; }
 
 .badge, .button {
   text-decoration: none;
@@ -96,7 +108,8 @@ a {
   background: #26d99d; }
 
 article {
-  padding: 0 80px; }
+  padding: 0 80px;
+  margin-bottom: 70px; }
   article h1 {
     margin-top: 1.8em; }
   article h2 {
@@ -111,8 +124,10 @@ article {
     font-weight: 300;
     margin-top: 1em;
     margin-bottom: 1.5em; }
-  article .demo {
-    margin-top: 4em; }
+  article section {
+    margin-top: 3em; }
+    article section:nth-child(3) {
+      margin-top: 5em; }
 
 form {
   background: #fafafa;
