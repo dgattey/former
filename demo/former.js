@@ -65,7 +65,9 @@ function Former(element) {
 	var former = this;
 	$(element).click(function(){former.updateModel();});
 	clearButton.click(function(){former.promptClear();});
+	Tipped.create(clearButton, 'Clear All History');
 	timelineButton.click(function(){former.timelineButtonClicked();});
+	Tipped.create(timelineButton, 'Show History');
 }
 
 /*
@@ -88,7 +90,7 @@ Former.prototype.isHistoryInvalid = function(){
 	if (!hist) return true;
 
 	var len = this.history.length;
-	return len === 0 || len == 1 && hist[len - 1].value === '';
+	return len === 0 || len == 1 && hist[len - 1] === '';
 };
 
 /*
@@ -134,7 +136,7 @@ Former.prototype.hideTimeline = function(){
 Former.prototype.moveTimeline = function(event){
 	$(this.element).toggleClass('timeline-change', true);
 	var val = $(event.target).prop('value');
-	this.element.value = this.history[val].value; // Don't update the model
+	this.element.value = this.history[val]; // Don't update the model
 };
 
 /*
@@ -143,7 +145,7 @@ Former.prototype.moveTimeline = function(event){
  */
 Former.prototype.createTimeline = function() {
 	var former = this;
-	var tm = $('<input type="range"></input>');
+	var tm = $('<input type="range" class="timeline-input"></input>');
 	tm.prop('max', this.history.length - 1);
 	tm.prop('value', tm.prop('max'));
 	tm.on('input', function(event){former.moveTimeline(event);});
@@ -172,12 +174,9 @@ Former.prototype.updateModel = function(value) {
 
 	// Don't save same data twice
 	var last = this.history[this.history.length - 1];
-	if (last && value == last.value) return;
+	if (last && value == last) return;
 	this.element.value = value;
-	this.history.push({
-		value: value,
-		date: new Date()
-	});
+	this.history.push(value);
 	this.save(this.history);
 };
 
